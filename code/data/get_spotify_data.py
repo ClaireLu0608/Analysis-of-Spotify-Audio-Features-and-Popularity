@@ -1,6 +1,5 @@
 from get_playlists import get_playlists
 from get_tracks import get_multiple_playlists_tracks, get_tracks_audio_features
-
 import requests
 import base64
 from dotenv import load_dotenv
@@ -9,193 +8,100 @@ import csv
 
 
 def get_access_token(client_id, client_secret):
-    auth_url = 'https://accounts.spotify.com/api/token'
-    auth_header = base64.b64encode(f"{client_id}:{client_secret}".encode()).decode('utf-8')
-    
+    """
+    Retrieves the access token from Spotify using the Client Credentials Flow.
+
+    Parameters:
+    - client_id (str): Your Spotify application's client ID.
+    - client_secret (str): Your Spotify application's client secret.
+
+    Returns:
+    - access_token (str): The Spotify access token.
+
+    Raises:
+    - Exception: If the request fails or the token cannot be retrieved.
+    """
+
+    # Spotify authentication URL for retrieving the token
+    auth_url = "https://accounts.spotify.com/api/token"
+    # Encode client_id and client_secret to base64
+    auth_header = base64.b64encode(f"{client_id}:{client_secret}".encode()).decode(
+        "utf-8"
+    )
+
     headers = {
-        'Authorization': f'Basic {auth_header}',
+        "Authorization": f"Basic {auth_header}",
     }
-    
-    data = {
-        'grant_type': 'client_credentials'
-    }
-    
+
+    data = {"grant_type": "client_credentials"}
+
+    # Make the POST request to get the access token
     response = requests.post(auth_url, headers=headers, data=data)
+
+    # Check if the request is successful (status code 200)
     if response.status_code == 200:
         token_info = response.json()
-        return token_info['access_token']
+        return token_info["access_token"]
     else:
-        raise Exception(f"Failed to get access token: {response.status_code}, {response.text}")
-    
-
-
-def write_data_to_csv(data, path):
-    """Write the data to the csv.
-    """
-    
-    with open(path, mode='w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = data[0].keys()
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        
-        writer.writeheader()
-        
-        for row in data:
-            writer.writerow(row)
-
-
-
-
-# def get_category_playlists(access_token, category_ids, country='US'):
-#     all_playlists = []
-    
-#     headers = {
-#         'Authorization': f'Bearer {access_token}',
-#     }
-    
-#     for category_id in category_ids:
-#         url = f'https://api.spotify.com/v1/browse/categories/{category_id}/playlists'
-#         params = {
-#             'country': country,  # Optional, specify a country to get localized playlists
-#             'limit': 50          # Max limit is 50 playlists per request
-#         }
-        
-#         response = requests.get(url, headers=headers, params=params)
-        
-#         if response.status_code == 200:
-#             playlists = response.json()['playlists']['items']
-#             all_playlists.extend(playlists)  # Collect all playlists
-#         else:
-#             print(f"Failed to get playlists for category {category_id}: {response.status_code}, {response.text}")
-    
-#     return all_playlists
-
-def get_category_playlists(access_token, category_ids, playlists_per_category=3, country='US'):
-    all_playlists = []
-    
-    headers = {
-        'Authorization': f'Bearer {access_token}',
-    }
-    
-    for category_id in category_ids:
-        url = f'https://api.spotify.com/v1/browse/categories/{category_id}/playlists'
-        params = {
-            'country': country # Set the limit to 50 to avoid errors (Spotify allows max 50 per request)
-        }
-        
-        response = requests.get(url, headers=headers, params=params)
-        
-        if response.status_code == 200:
-            playlists = response.json()['playlists']['items']
-            # Append up to the specified number of playlists per category (3 in this case)
-            all_playlists.extend(playlists[:playlists_per_category])
-        else:
-            print(f"Failed to get playlists for category {category_id}: {response.status_code}, {response.text}")
-    
-    return all_playlists
-
-
-def get_category_playlists(access_token, category_name, country='US'):
-    # Set up the endpoint to get playlists for a single category
-    url = f'https://api.spotify.com/v1/browse/categories/{category_name}/playlists'
-    
-    headers = {
-        'Authorization': f'Bearer {access_token}',
-    }
-
-    params = {
-        'country': country,  # Optional: specify a country for localized playlists
-        'limit': 3           # Only get 3 playlists
-    }
-    
-    response = requests.get(url, headers=headers, params=params)
-    
-    print(response)
-    if response.status_code == 200:
-        playlists = response.json()['playlists']['items']
-        return playlists
-    else:
-        raise Exception(f"Failed to get playlists: {response.status_code}, {response.text}")
-
-
-
-load_dotenv()
-
-client_id = os.getenv('SPOTIFY_CLIENT_ID')
-client_secret = os.getenv('SPOTIFY_CLIENT_SECRET')
-
-access_token = get_access_token(client_id, client_secret)
-
-
-
-
-
+        raise Exception(
+            f"Failed to get access token: {response.status_code}, {response.text}"
+        )
 
 
 if __name__ == "__main__":
-    # current_dir = os.path.dirname(os.path.abspath(__file__))
-    # popular_categories_csv_path = os.path.join(current_dir, '..', 'artifacts', 'popular_categories.csv')
-    # popular_categories_df=pd.read_csv(popular_categories_csv_path)
-    
-    # popular_categories=popular_categories_df['name'].to_list()
-    # popular_categories=[item.lower() for item in popular_categories]
+    load_dotenv()  # Load environment variables from the .env file
 
-    # all_playlists = get_category_playlists(access_token, popular_categories[3])
-    # for playlist in all_playlists:
-    
-    #     print(f"Category Playlist: {playlist['name']}, URL: {playlist['external_urls']['spotify']}, ID: {playlist['id']}")
+    # Retrieve Spotify client credentials from environment variables
+    client_id = os.getenv("SPOTIFY_CLIENT_ID")
+    client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
 
-# # Display categories
-#     for category in categories:
-#         print(f"Category ID: {category['id']}, Name: {category['name']}")
-    # with open('categories.csv', 'w', newline='') as csvfile:
-    #     fieldnames = categories[0].keys()
-        
-    #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        
-    #     writer.writeheader()
-        
-    #     for track in categories:
-    #         writer.writerow(track)
-    
-    
-    query = 'English songs'  
-    playlists_id = get_playlists(query, access_token, 50)
-    # print(len(playlists_id))
-    all_tracks_info=get_multiple_playlists_tracks(access_token, playlists_id)
-    
-    all_tracks_id=[]
+    # Get an access token
+    access_token = get_access_token(client_id, client_secret)
+
+    # Search for playlists related to the query 'English songs' retrieve their IDs
+    query = "English songs"
+    playlists_id = get_playlists(query, access_token, 50)  # Retrieve their IDs
+
+    # Fetch all tracks information from the retrieved playlists and collect tracks' IDs
+    all_tracks_info = get_multiple_playlists_tracks(access_token, playlists_id)
+    all_tracks_id = []
     for track in all_tracks_info:
-        all_tracks_id.append(track['id'])  
-    # print(len(all_tracks_id))
+        all_tracks_id.append(track["id"])
 
-    all_tracks_features=get_tracks_audio_features(all_tracks_id,access_token)
-    
-    for i in range(0,len(all_tracks_info)):
-        # all_tracks_info[i].update(all_tracks_features[i])
+    # Retrieve audio features for the tracks using their IDs
+    all_tracks_features = get_tracks_audio_features(all_tracks_id, access_token)
+
+    # Update the track info with the corresponding audio features
+    for i in range(0, len(all_tracks_info)):
         try:
             print(all_tracks_info[i])
         except IndexError:
             break  # Exit the loop if the index is out of range
-        
-        if all_tracks_features[i] is not None: 
+
+        if all_tracks_features[i] is not None:
             all_tracks_info[i].update(all_tracks_features[i])
         else:
-            all_tracks_info.remove(all_tracks_info[i])
+            all_tracks_info.remove(
+                all_tracks_info[i]
+            )  # Remove track if features are missing
 
+    # Define the directory for storing the CSV output
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    artifacts_dir = os.path.join(current_dir, '..', '..', 'artifacts')
+    artifacts_dir = os.path.join(current_dir, "..", "..", "artifacts")
 
+    # Define the path to the CSV file
     CSV_PATH = os.path.join(artifacts_dir, "results.csv")
 
+    # Create the directory if it doesn't exist
     os.makedirs(artifacts_dir, exist_ok=True)
 
-    with open(CSV_PATH, 'w', newline='') as csvfile:
+    # Write the collected track information to a CSV file
+    with open(CSV_PATH, "w", newline="") as csvfile:
         fieldnames = all_tracks_info[0].keys()
-        
+
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        
+
         writer.writeheader()
-        
+
         for track in all_tracks_info:
             writer.writerow(track)
-        
