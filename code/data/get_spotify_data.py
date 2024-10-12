@@ -1,5 +1,5 @@
-from data.get_playlists import get_playlists
-from data.get_tracks import get_multiple_playlists_tracks, get_tracks_audio_features
+from get_playlists import get_playlists
+from get_tracks import get_multiple_playlists_tracks, get_tracks_audio_features
 
 import requests
 import base64
