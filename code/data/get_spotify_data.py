@@ -1,5 +1,5 @@
-from code.data.get_playlists import get_playlists
-from code.data.get_tracks import get_multiple_playlists_tracks, get_tracks_audio_features
+from data.get_playlists import get_playlists
+from data.get_tracks import get_multiple_playlists_tracks, get_tracks_audio_features
 
 import requests
 import base64
@@ -185,7 +185,7 @@ if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.abspath(__file__))
     artifacts_dir = os.path.join(current_dir, '..', '..', 'artifacts')
 
-    CSV_PATH = os.path.join(artifacts_dir, "categories.csv")
+    CSV_PATH = os.path.join(artifacts_dir, "results.csv")
 
     os.makedirs(artifacts_dir, exist_ok=True)
 
