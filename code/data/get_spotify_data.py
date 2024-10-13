@@ -90,7 +90,7 @@ if __name__ == "__main__":
     artifacts_dir = os.path.join(current_dir, "..", "..", "artifacts")
 
     # Define the path to the CSV file
-    CSV_PATH = os.path.join(artifacts_dir, "results.csv")
+    CSV_PATH = os.path.join(artifacts_dir, "spotify_data.csv")
 
     # Create the directory if it doesn't exist
     os.makedirs(artifacts_dir, exist_ok=True)
