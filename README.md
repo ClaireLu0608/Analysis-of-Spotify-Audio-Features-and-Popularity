@@ -1,7 +1,7 @@
 # eco395m_midterm_project
 
 
-A.Data Cllection(ly)
+A.Data Collection(ly)
 
 B.Data Overview(zty)
 documentation
