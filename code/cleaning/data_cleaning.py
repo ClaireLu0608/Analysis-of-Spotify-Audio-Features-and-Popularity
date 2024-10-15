@@ -33,8 +33,8 @@ df_cleaned["popularity"] = df["popularity"]
 
 df_cleaned = df_cleaned.reset_index(drop=True)
 # df_cleaned.to_csv("artifacts/cleaned_data.csv", index=False)
-    
-with open("artifacts/cleaned_data.csv", mode='w', newline='', encoding='utf-8') as file:
+
+with open("artifacts/cleaned_data.csv", mode="w", newline="", encoding="utf-8") as file:
     writer = csv.DictWriter(file, fieldnames=df_cleaned.columns)
     writer.writeheader()
-    writer.writerows(df_cleaned.to_dict(orient='records'))
+    writer.writerows(df_cleaned.to_dict(orient="records"))
