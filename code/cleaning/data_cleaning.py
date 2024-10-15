@@ -16,6 +16,7 @@ df = df[df['popularity'] != 0]
 df.dropna(inplace=True) 
 
 
+
 y = df['popularity']
 X = pd.DataFrame()
 X['duration_ms'] = np.log1p(df['duration_ms'])
