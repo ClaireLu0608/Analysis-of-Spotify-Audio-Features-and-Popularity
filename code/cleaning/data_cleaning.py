@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 
-
 df = pd.read_csv("artifacts/spotify_data.csv")
 df = df[df["popularity"] >= 5]  # Remove any extremely small values
 
