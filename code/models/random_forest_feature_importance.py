@@ -36,8 +36,18 @@ best_params = grid_search.best_params_
 best_rf = RandomForestRegressor(**best_params, random_state=42)
 best_rf.fit(X_train, y_train)
 importances = best_rf.feature_importances_
-print(importances)
 
+# Create a DataFrame to plot and visualize the feature importance
+feature_importance = pd.DataFrame(
+    {"Feature": X.columns, "Importance": importances}
+).sort_values(by="Importance", ascending=True)
+plt.figure(figsize=(10, 6))
+plt.barh(feature_importance["Feature"], feature_importance["Importance"])
+plt.xlabel("Importance")
+plt.ylabel("Feature")
+plt.title("Random Forest Feature Importance")
+plt.savefig("images/random_forest_feature_importance.png", bbox_inches="tight")
+plt.show()
 
 # Get MSE on testing data
 y_pred = best_rf.predict(X_test)
