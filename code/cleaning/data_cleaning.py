@@ -17,15 +17,13 @@ df_cleaned["instrumentalness"] = np.log1p(df["instrumentalness"])
 
 # 2. Standard scaling of features
 standard_scaler = StandardScaler()
-df_cleaned[["danceability", "liveness"]] = standard_scaler.fit_transform(
-    df[["danceability", "liveness"]]
+df_cleaned[["danceability", "liveness", "tempo", "loudness"]] = (
+    standard_scaler.fit_transform(df[["danceability", "liveness", "tempo", "loudness"]])
 )
 
 # 3. Min Max scaling of features
 min_max_scaler = MinMaxScaler()
-df_cleaned[["tempo", "loudness", "key"]] = min_max_scaler.fit_transform(
-    df[["tempo", "loudness", "key"]]
-)
+df_cleaned[["key"]] = min_max_scaler.fit_transform(df[["key"]])
 
 # 4. Add other features
 df_cleaned["mode"] = df["mode"]

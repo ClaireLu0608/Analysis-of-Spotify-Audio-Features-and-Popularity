@@ -17,9 +17,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 rf = RandomForestRegressor(random_state=42)
 param_grid = {
     "n_estimators": [100, 200, 300],
-    "max_depth": [5, 10, 15], 
-    "min_samples_split": [2, 3, 4],  
-    "min_samples_leaf": [1, 2, 3], 
+    "max_depth": [5, 10, 15],
+    "min_samples_split": [2, 3, 4],
+    "min_samples_leaf": [1, 2, 3],
 }
 grid_search = GridSearchCV(
     estimator=rf,
@@ -32,7 +32,7 @@ grid_search = GridSearchCV(
 grid_search.fit(X_train, y_train)
 best_params = grid_search.best_params_
 
-# Fit random forest with the best parameters to get feature importance 
+# Fit random forest with the best parameters to get feature importance
 best_rf = RandomForestRegressor(**best_params, random_state=42)
 best_rf.fit(X_train, y_train)
 importances = best_rf.feature_importances_
