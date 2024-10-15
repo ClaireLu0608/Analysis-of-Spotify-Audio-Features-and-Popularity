@@ -1,37 +1,37 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LinearRegression, Lasso, LassoCV
-import xgboost as xgb
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split,GridSearchCV
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-import statsmodels.api as sm
-from scipy import stats
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-
-df = pd.read_csv('artifacts/spotify_data.csv')
-df = df[df['popularity'] != 0]
-df.dropna(inplace=True) 
 
 
 
-y = df['popularity']
-X = pd.DataFrame()
-X['duration_ms'] = np.log1p(df['duration_ms'])
-X['speechiness'] = np.log1p(df['speechiness'])
-X['acousticness'] = np.log1p(df['acousticness'])
-X['instrumentalness'] = np.log1p(df['instrumentalness'])
+df = pd.read_csv("artifacts/spotify_data.csv")
+df = df[df["popularity"] >= 5]  # Remove any extremely small values
+df.dropna(inplace=True)  # Drop nan values
+df = df.drop_duplicates()  # Remove duplicates
 
+# Create an empty dataset for cleaned data. Remove energy, valence, and acousticness with multicollinearity from previous correlation analysis
+df_cleaned = pd.DataFrame()
 
+# 1. Log transform of features
+df_cleaned["duration_ms"] = np.log1p(df["duration_ms"])
+df_cleaned["speechiness"] = np.log1p(df["speechiness"])
+df_cleaned["instrumentalness"] = np.log1p(df["instrumentalness"])
+
+# 2. Standard scaling of features
 standard_scaler = StandardScaler()
-X[['danceability', 'energy', 'valence', 'liveness', 'mode']] = standard_scaler.fit_transform(
-    df[['danceability', 'energy', 'valence', 'liveness', 'mode']]
+df_cleaned[["danceability", "liveness"]] = standard_scaler.fit_transform(
+    df[["danceability", "liveness"]]
 )
 
+# 3. Min Max scaling of features
 min_max_scaler = MinMaxScaler()
-X[['tempo', 'loudness','key']] = min_max_scaler.fit_transform(df[['tempo', 'loudness', 'key']])
+df_cleaned[["tempo", "loudness", "key"]] = min_max_scaler.fit_transform(
+    df[["tempo", "loudness", "key"]]
+)
 
-y = y.reset_index(drop=True)
-X = X.reset_index(drop=True)
+# 4. Add other features
+df_cleaned["mode"] = df["mode"]
+df_cleaned["popularity"] = df["popularity"]
+
+df_cleaned = df_cleaned.reset_index(drop=True)
+df_cleaned.to_csv("artifacts/cleaned_data.csv", index=False)
