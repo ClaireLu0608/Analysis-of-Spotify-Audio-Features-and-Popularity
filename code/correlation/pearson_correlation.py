@@ -9,9 +9,8 @@ import matplotlib.pyplot as plt
 
 plt.ion()
 
-# read csv
-# url = 'https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/artifacts/results.csv'
-df = pd.read_csv(r"D:/python_hw/mid/eco395m_midterm_project/artifacts/spotify_data.csv")
+
+df = pd.read_csv("artifacts/spotify_data.csv")
 df_unique = df.drop_duplicates(subset=["id"])
 
 # df = pd.read_csv(df)
@@ -56,7 +55,7 @@ plt.xticks(rotation=45, ha="right", fontsize=10)
 plt.yticks(fontsize=10)
 plt.title("Correlation Matrix of Music Features")
 plt.savefig(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/correlation.png",
+    "images/correlation.png",
     bbox_inches="tight",
 )
 
@@ -100,7 +99,3 @@ vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(X.shape
 
 
 print(vif_data)
-vif_data.to_csv(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/vif_values_pearson.csv",
-    index=False,
-)

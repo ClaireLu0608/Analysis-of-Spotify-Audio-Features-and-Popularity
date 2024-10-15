@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # read CSV
-df = pd.read_csv(r"D:/python_hw/mid/eco395m_midterm_project/artifacts/spotify_data.csv")
+df = pd.read_csv("artifacts/spotify_data.csv")
 df["release date"] = pd.to_datetime(df["release date"])
 df["year"] = df["release date"].dt.year
 
@@ -39,7 +39,7 @@ plt.tight_layout()
 
 #save image
 plt.savefig(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/variable_distributions.png",
+    "images/variable_distributions.png",
     bbox_inches="tight",
 )
 
@@ -54,7 +54,7 @@ plt.xlim(0, 0.2)
 
 # save instrumentalness image
 plt.savefig(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/instrumentalness_distribution.png",
+    "images/instrumentalness_distribution.png",
     bbox_inches="tight",
 )
 

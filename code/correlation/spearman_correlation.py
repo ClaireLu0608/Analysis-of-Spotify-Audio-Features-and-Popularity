@@ -6,10 +6,11 @@ import numpy as np
 
 
 # read CSV
-df = pd.read_csv(r"D:/python_hw/mid/eco395m_midterm_project/artifacts/spotify_data.csv")
+df = pd.read_csv("artifacts/spotify_data.csv")
 df = df.drop_duplicates(subset=["id"])
 num_rows, num_cols = df.shape
 print(f"number of rows after deduplication: {num_rows}")
+# If we want to use the 'year' variable, we can use the following lines
 # df['release date'] = pd.to_datetime(df['release date'])
 # df['year'] = df['release date'].dt.year
 
@@ -57,7 +58,7 @@ plt.title("Spearman Correlation Matrix of Music Features")
 
 
 plt.savefig(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/spearman_correlation.png",
+    "images/spearman_correlation.png",
     bbox_inches="tight",
 )
 
@@ -91,7 +92,3 @@ vif_data["VIF"] = [
 ]
 
 print(vif_data)
-vif_data.to_csv(
-    r"D:/python_hw/mid/eco395m_midterm_project/artifacts/vif_values_spearman.csv",
-    index=False,
-)
