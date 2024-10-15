@@ -6,8 +6,6 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 df = pd.read_csv("artifacts/spotify_data.csv")
 df = df[df["popularity"] >= 5]  # Remove any extremely small values
-df.dropna(inplace=True)  # Drop nan values
-df = df.drop_duplicates()  # Remove duplicates
 
 # Create an empty dataset for cleaned data. Remove energy, valence, and acousticness with multicollinearity from previous correlation analysis
 df_cleaned = pd.DataFrame()
