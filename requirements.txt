@@ -4,4 +4,4 @@ pandas==2.1.1
 numpy==1.26.4
 matplotlib==3.8.4
 statsmodels==0.14.2
-sklearn==1.4.2
+scikit-learn==1.4.2
