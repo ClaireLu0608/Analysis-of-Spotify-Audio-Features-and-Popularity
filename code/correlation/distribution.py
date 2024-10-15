@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # read CSV
 df = pd.read_csv("artifacts/spotify_data.csv")
+print(len(df))
 df["release date"] = pd.to_datetime(df["release date"])
 df["year"] = df["release date"].dt.year
 
@@ -40,21 +41,6 @@ plt.tight_layout()
 #save image
 plt.savefig(
     "images/variable_distributions.png",
-    bbox_inches="tight",
-)
-
-plt.show()
-plt.figure(figsize=(8, 6))
-
-sns.histplot(df["instrumentalness"], kde=True, bins=30)
-plt.title("Distribution of instrumentalness", fontsize=12)
-plt.xlabel("instrumentalness")
-plt.ylabel("Frequency")
-plt.xlim(0, 0.2)
-
-# save instrumentalness image
-plt.savefig(
-    "images/instrumentalness_distribution.png",
     bbox_inches="tight",
 )
 

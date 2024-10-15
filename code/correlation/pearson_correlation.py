@@ -7,15 +7,12 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-plt.ion()
-
-
 df = pd.read_csv("artifacts/spotify_data.csv")
-df_unique = df.drop_duplicates(subset=["id"])
+#df_unique = df.drop_duplicates(subset=["id"])
 
 # df = pd.read_csv(df)
-df_unique["release date"] = pd.to_datetime(df_unique["release date"])
-df_unique["year"] = df_unique["release date"].dt.year
+df["release date"] = pd.to_datetime(df["release date"])
+df["year"] = df["release date"].dt.year
 variables = [
     "popularity",
     "duration (ms)",
@@ -34,12 +31,16 @@ variables = [
 ]
 
 # calculate correlation_matrix
-correlation_matrix = df_unique[variables].corr(method="pearson")
+correlation_matrix = df[variables].corr(method="pearson")
 
 plt.figure(figsize=(12, 10))
 
 # use seaborn yo draw heat map
-sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f")
+
+
+plt.figure(figsize=(12, 10))
+
+sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm",cbar=True, fmt=".2f")
 sns.heatmap(
     correlation_matrix,
     annot=True,
@@ -53,16 +54,15 @@ sns.heatmap(
 
 plt.xticks(rotation=45, ha="right", fontsize=10)
 plt.yticks(fontsize=10)
-plt.title("Correlation Matrix of Music Features")
+plt.title("Pearson Correlation Matrix of Music Features")
 plt.savefig(
-    "images/correlation.png",
+    "images/pearson correlation.png",
     bbox_inches="tight",
 )
 
-plt.show()
 print("missing value:")
-print(df_unique[variables].isnull().sum())
-df_cleaned = df_unique[variables].dropna()
+print(df[variables].isnull().sum())
+df_cleaned = df[variables].dropna()
 print("missing value after cleaning:")
 print(df_cleaned.isnull().sum())
 

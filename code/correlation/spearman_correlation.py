@@ -7,12 +7,9 @@ import numpy as np
 
 # read CSV
 df = pd.read_csv("artifacts/spotify_data.csv")
-df = df.drop_duplicates(subset=["id"])
-num_rows, num_cols = df.shape
-print(f"number of rows after deduplication: {num_rows}")
 # If we want to use the 'year' variable, we can use the following lines
-# df['release date'] = pd.to_datetime(df['release date'])
-# df['year'] = df['release date'].dt.year
+#df['release date'] = pd.to_datetime(df['release date'])
+#df['year'] = df['release date'].dt.year
 
 variables = [
     "popularity",
