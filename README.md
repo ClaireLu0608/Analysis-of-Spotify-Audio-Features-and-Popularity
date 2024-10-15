@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # eco395m_midterm_project
 
 
@@ -19,3 +20,5 @@ G.Limitations (all)
 
 H.Further Improvements(all)
 
+=======
+>>>>>>> Stashed changes

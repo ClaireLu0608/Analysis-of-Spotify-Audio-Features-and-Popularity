@@ -5,6 +5,7 @@ import base64
 from dotenv import load_dotenv
 import os
 import csv
+import pandas as pd
 
 
 def get_access_token(client_id, client_secret):
@@ -105,3 +106,10 @@ if __name__ == "__main__":
 
         for track in all_tracks_info:
             writer.writerow(track)
+
+    df = pd.read_csv(CSV_PATH)
+
+    df.dropna(inplace=True)  # Drop nan values
+    df = df.drop_duplicates()  # Remove duplicates
+
+    df.to_csv(CSV_PATH, index=False) # Store the new data in the original file
