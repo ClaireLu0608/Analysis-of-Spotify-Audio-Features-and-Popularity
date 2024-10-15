@@ -111,5 +111,6 @@ if __name__ == "__main__":
 
     df.dropna(inplace=True)  # Drop nan values
     df = df.drop_duplicates()  # Remove duplicates
+    df = df.drop(columns=["duration (ms)"])  # Remove the duplicated column
 
-    df.to_csv(CSV_PATH, index=False) # Store the new data in the original file
+    df.to_csv(CSV_PATH, index=False)  # Store the new data in the original file
