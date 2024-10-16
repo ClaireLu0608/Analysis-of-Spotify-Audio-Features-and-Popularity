@@ -122,7 +122,8 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
   We used impurity-based feature importance of Random Forest to determine which feature is more useful for reduction in impurity when splitting data at verious nodes. A 5 fold cross validation was performed on trainning data with the best parameters selected, and we used them to obtain feature importance when fitting. The result below showed in descending order of importance.
   ![](images/random_forest_feature_importance.png)
 * *Lasso Regression:*
-  We also used lasso regression for feature selection, since lasso shrinked some coefficients of variables to 0 by adding a penalty term to the loss function. The result below showed selected features in blue and unselected features with coefficient 0.
+  We also used lasso regression for feature selection, since lasso shrinked some coefficients of variables to 0 by adding a penalty term to the loss function. A 5 fold cross validation was performed on trainning data to select optimal alpha from large values, and then we obtained coefficients from the optimal model. The result below showed selected features in blue and unselected features with coefficient 0.
+  ![](images/lasso_feature_selection.png)
 
 ## E.Case Study(czz)
 
