@@ -113,7 +113,8 @@ D.Model(xlb) and result
 ## E.Case Study(czz)
 
 ## F.Reproducibility(ly)
-
+* ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
+* 
 ## G.Limitations (all)
 
 ## H.Further Improvements(all)
