@@ -13,7 +13,7 @@ df_cleaned = pd.DataFrame()
 # 1. Log transform of features
 df_cleaned["duration_ms"] = np.log1p(df["duration_ms"])
 df_cleaned["speechiness"] = np.log1p(df["speechiness"])
-df_cleaned['acousticness'] = np.log1p(df['acousticness'])
+df_cleaned["acousticness"] = np.log1p(df["acousticness"])
 df_cleaned["instrumentalness"] = np.log1p(df["instrumentalness"])
 
 # 2. Standard scaling of features
@@ -32,7 +32,7 @@ df_cleaned["popularity"] = df["popularity"]
 
 df_cleaned = df_cleaned.reset_index(drop=True)
 
-#Write into csv file
+# Write into csv file
 with open("artifacts/cleaned_data.csv", mode="w", newline="", encoding="utf-8") as file:
     writer = csv.DictWriter(file, fieldnames=df_cleaned.columns)
     writer.writeheader()
