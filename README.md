@@ -3,7 +3,7 @@
 
 ## A.Data Collection(ly)
 ***Source:*** 
-We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api.
+  We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api.
 
 
 ***Process:***
@@ -29,7 +29,7 @@ We used the Spotify for Developers API to gather information on Spotify music. H
 
 
 ***Execution method:*** 
-To execute the code and get the tracks' information and audio featires (the data that you can use for further analysis), you should first get a Spotify API Client ID and Client Secret. Please follow the steps below to obtain them. Then set them as environment variables, and our code in get_spotify_data.py can help you get your access token. The steps are as follows: 
+  To execute the code and get the tracks' information and audio featires (the data that you can use for further analysis), you should first get a Spotify API Client ID and Client Secret. Please follow the steps below to obtain them. Then set them as environment variables, and our code in get_spotify_data.py can help you get your access token. The steps are as follows: 
 
 * Go to the Spotify for Developers Dashboard (https://developer.spotify.com/dashboard/) and log in or create a Spotify developer account.
 * Create a new application, and you will receive a Client ID and Client Secret.
@@ -47,7 +47,7 @@ python3 get_spotify_data.py
 ```
 
 ***Results you will get:*** 
-A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
+  A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
 ## B.Data Overview(zty)
 ### documentation
