@@ -11,18 +11,17 @@
 4. artists: The artists of the album
 5. duration (ms):The track length in milliseconds
 6. popularity:The popularity of the track. The value will be between 0 and 100.
-7. preview url:A link to a 30 second preview (MP3 format) of the track. Can be null
-8. danceability:Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
-9. energy:Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity.
-10. key:The key the track is in. Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
+7. danceability:How suitable a track is for dancing based on a combination of musical elements.
+9. energy:A measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity.
+10. key:The key the track is in.
 11. loudness:The overall loudness of a track in decibels (dB).
-12. mode:Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.
+12. mode:Mode indicates the modality of a track, the type of scale from which its melodic content is derived. 
 13. speechiness:Speechiness detects the presence of spoken words in a track.
 14. acousticness:A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 
 15. instrumentalness:Predicts whether a track contains no vocals.
 16. liveness:Detects the presence of an audience in the recording.
 17. valence:A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.
-18. tempo:The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.
+18. tempo:The overall estimated tempo of a track in beats per minute (BPM). 
 
 
 ### distribution
@@ -61,8 +60,38 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 
 
 ### Correlation
+Determine the correlation coefficients between each music feature.
+  Since some of the features don't follow normal distribution,so Spearman correlation is more suitable for correlation analysis.
 
-D.Model(xlb) and result
+![correlation](https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/images/spearman_correlation.png)
+
+loudness and energy:correlation coefficient is positive high(0.7)
+acousticness and energy:correlation coefficient is negative high(-0.56)
+valence and danceability:correlation coefficient is relatively high(0.43)
+
+Check for Multicollinearity
+
+Variance Inflation Factor (VIF): A common measure used to quantify how much the variance of the estimated regression coefficients is increased due to multicollinearity.
+
+| Feature         | VIF                         |
+|-----------------|-----------------------------|
+|**duration (ms)**    | 13.100347                   |
+|**danceability**     | 19.692102                   |
+|**energy**           | 22.023305
+|key              | 3.173974
+|**loudness**         | 9.762100
+|mode             | 2.279409
+|speechiness      | 2.218682
+|acousticness     | 2.702970
+|instrumentalness | 1.095804
+|liveness         | 2.869287
+|**valence**          | 7.627239
+|**tempo**            | 17.631970
+
+duration, danceability, energy, loudness, tempo and valence have VIF>5, which means these feature may effect the durability of regression model. According to the correlation result, duration, danceability, loudness have higher correlation with popularity, so we can delete energy and valence.
+
+
+## D.Model(xlb) and result
 
 ## E.Case Study(czz)
 
