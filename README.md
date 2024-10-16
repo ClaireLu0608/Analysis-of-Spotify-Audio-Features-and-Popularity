@@ -183,7 +183,7 @@ python code/models/random_forest_feature_importance.py
 
 ## F.Reproducibility(ly)
 * ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
-* 
+* ***Models:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models. You are able to adjust your desired models as needed. 
 ## G.Limitations (all)
 
 ## H.Further Improvements(all)
