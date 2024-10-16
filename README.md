@@ -23,7 +23,7 @@
 * *Extract Audio Features:*  
   With the track IDs obtained from the previous step, we then used the Get Track's Audio Features API (https://developer.spotify.com/documentation/web-api/reference/get-audio-features)  
   to retrieve detailed audio features for each track. These features included attributes such as loudness, energy, danceability, and more,  
-  providing a deeper understanding of the songs' characteristics. After dropping the duplicated data,  
+  providing a deeper understanding of the songs' characteristics. After dropping the duplicates and NA,  
   the dataset contains data on 4,929 tracks. We saved the data into a CSV file named `spotify_data.csv`.
   This step is handled in `code/data/get_spotify_data.py`.
 
