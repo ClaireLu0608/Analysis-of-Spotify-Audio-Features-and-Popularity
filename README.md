@@ -180,31 +180,34 @@ python code/models/random_forest_feature_importance.py
 ## E.Case Study(czz)
 ***Top Songs vs. Regular Songs feature analysis***
 
-Objective:
+***Objective:***
 To examine how the audio features of the top 10% of most popular songs (by some ranking metric) differ from other tracks.
 
-Key Insights:
+***Key Insights:***
 
 * The comparison is based on several audio features such as danceability, tempo, liveness, instrumentalness, loudness, speechiness, key, mode, and acousticness.
 * Notable differences can be observed in loudness, key, and mode, where the top 10% songs show distinct characteristics compared to regular songs.
 * Features like instrumentalness and liveness seem to have a negative correlation for top songs, while others like loudness are positively skewed.
 * The key and mode features are also more prevalent in the top tracks, indicating potential influence on popularity.
 
-The visualized result is shown below:
+***Result:***
+
   ![](images/avg_audio_features_comparison_top_10per.png)
   
 ***Trends in Audio Features Over Time (1980-2024)***
 
-Objective: To identify patterns and trends in the evolution of audio features in songs over time, starting from 1980.
+***Objective:***
+To identify patterns and trends in the evolution of audio features in songs over time, starting from 1980.
 
-Key Insights:
+***Key Insights:***
 
 * Features such as danceability, tempo, liveness, instrumentalness, loudness, and speechiness are analyzed across different decades.
 Some features, like loudness and speechiness, show consistent trends over time, potentially reflecting the changing production styles in the music industry.
 * There’s a lot of variance in tempo and liveness over the years, suggesting shifts in genre popularity or production techniques during different periods.
 * Danceability has remained fairly consistent, though slight variations suggest it may not be as critical a factor for songs’ success over time as other features.
 
-The visualized result is shown below:
+***Result:***
+
  ![](images/time_based_analysis.png)
 
  
