@@ -228,6 +228,9 @@ The analysis focuses on a predefined set of audio features (e.g., danceability, 
 The temporal analysis shows a lot of variance in certain features like tempo and liveness. This noise could be due to random fluctuations in the dataset or genre shifts that were not fully addressed in the analysis. A more refined analysis could control for genre or other contextual factors to reduce noise and improve the reliability of the findings.
 
 ## H.Further Improvements(all)
+***Data Collection:***
+
+Some methods can be developed to obtain the actual play counts for each track and how many people have saved them. Additionally, we can retrieve the genre tags for each track and analyze which features influence the popularity of tracks within specific genres, making the analysis more targeted.
 
 ***Genre-Specific Analysis:***
 
