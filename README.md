@@ -2,18 +2,21 @@
 
 
 ## A.Data Collection(ly)
-***Source:*** We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api/reference/get-audio-features
+***Source:*** We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api.
 
 
 ***Process:***
-* *Search for Playlists:*
-  We utilized Spotify's Search API (https://developer.spotify.com/documentation/web-api/reference/search) to search for playlists containing English songs. By setting the query to "English songs," we ensured that the data would be diverse and representative of different music genres. We retrieved 50 playlists in total. 
-
+* *Search for Playlists:*  
+  We utilized Spotify's Search API (https://developer.spotify.com/documentation/web-api/reference/search)  
+  to search for playlists containing English songs. By setting the query to "English songs,"  
+  we ensured that the data would be diverse and representative of different music genres.  
+  We retrieved 50 playlists in total.
+  
 * *Retrieve Playlist Items:*
   Using the Get Playlist Items API (https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks), we extracted all the songs from these 50 playlists. This allowed us to gather basic information for each song, such as ID, name, release date, Artists, popularity and so on. This firstly resulted in a dataset containing information on 5,668 tracks.
 
 * *Extract Audio Features:*
-  With the track IDs obtained from the previous step, we then used the Get Track's Audio Features API (https://developer.spotify.com/documentation/web-api/reference/get-audio-features) to retrieve detailed audio features for each track. These features included attributes such as loudness, energy, danceability, and more, providing a deeper understanding of the songs' characteristics. After droping the duplicated data, the dataset contains data of 4,929 tracks. We saved the data into a CSV file named **'spotify_data.csv'**.
+  With the track IDs obtained from the previous step, we then used the Get Track's Audio Features API (https://developer.spotify.com/documentation/web-api/reference/get-audio-features) to retrieve detailed audio features for each track. These features included attributes such as loudness, energy, danceability, and more, providing a deeper understanding of the songs' characteristics. After droping the duplicated data, the dataset contains data of 4,929 tracks. We saved the data into a CSV file named `spotify_data.csv`.
 
 ***Execution method:*** To execute the code and get the tracks' information and audio featires (the data that you can use for further analysis), you should first get a Spotify API Client ID and Client Secret. Please follow the steps below to obtain them. Then set them as environment variables, and our code in get_spotify_data.py can help you get your access token. The steps are as follows: 
 
