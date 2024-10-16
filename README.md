@@ -226,4 +226,8 @@ The temporal analysis shows a lot of variance in certain features like tempo and
 
 ## H.Further Improvements(all)
 
+***Genre-Specific Analysis:***
+
+A genre-based comparison could shed light on whether the trends observed in the top 10% songs are genre-specific or universal. Some audio features, like instrumentalness or tempo, may have different influences depending on whether the song is pop, rock, hip-hop, electronic, etc. Splitting the data by genre and conducting genre-specific case studies could lead to more accurate insights.
+
 
