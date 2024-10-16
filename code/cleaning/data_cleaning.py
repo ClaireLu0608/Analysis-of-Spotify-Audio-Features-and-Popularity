@@ -13,6 +13,7 @@ df_cleaned = pd.DataFrame()
 # 1. Log transform of features
 df_cleaned["duration_ms"] = np.log1p(df["duration_ms"])
 df_cleaned["speechiness"] = np.log1p(df["speechiness"])
+df_cleaned['acousticness'] = np.log1p(df['acousticness'])
 df_cleaned["instrumentalness"] = np.log1p(df["instrumentalness"])
 
 # 2. Standard scaling of features
