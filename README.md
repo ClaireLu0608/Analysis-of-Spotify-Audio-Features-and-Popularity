@@ -123,7 +123,7 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
   ![](images/random_forest_feature_importance.png)
 * *Lasso Regression:*
   We also used lasso regression for feature selection, since lasso shrinked some coefficients of variables to 0 by adding a penalty term to the loss function. A 5 fold cross validation was performed on trainning data to select optimal alpha from large values, and then we obtained coefficients from the optimal model. The result below showed selected features in blue and unselected features with coefficient 0.
-  ![](images/lasso_feature_selection.png)
+  ![](images/random_forest_feature_importance.png)
 
 ## E.Case Study(czz)
 
