@@ -114,18 +114,18 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
   
 
 ***Data Cleaning:*** 
-  For model interpretation and overfitting reasons, we did not look at data points with popularity score under 5. We utilized 3 methods of data transformation: Log Transform for skewed features, Standard Scaling for normally distributed features, and Min-Max Scaling for features without obvious distributuons. 
+  For model interpretation and to avoid overfitting, we excluded data points with a popularity score below 5. We applied three different data transformation methods: Log Transformation for skewed features, Standard Scaling for features that followed a normal distribution, and Min-Max Scaling for features without an obvious distribution pattern.
 
 ***Models:*** 
   To explore which features are more relevant and influential to the popularity score, we used three models for feature selection.
 * *Random Forest:*
-  We used impurity-based feature importance of Random Forest to determine which feature is more useful for reduction in impurity when splitting data at verious nodes. A 5 fold cross validation was performed on trainning data with the best parameters selected, and we used them to obtain feature importance when fitting. The result below showed in descending order of importance.
+  We used impurity-based feature importance from the Random Forest model to identify which features contributed the most to reducing impurity when splitting the data at various nodes. A 5-fold cross-validation was conducted on the training data to select the best parameters, which were then used to fit the model and obtain the feature importance scores. The results below are displayed in descending order of importance.
   ![](images/random_forest_feature_importance.png)
 * *Lasso Regression:*
-  We also used lasso regression for feature selection, since lasso shrinked some coefficients of variables to 0 by adding a penalty term to the loss function. A 5 fold cross validation was performed on trainning data to select optimal alpha from large values, and then we obtained coefficients from the optimal model. The result below showed selected features in blue and unselected features with coefficient 0.
+  We also utilized Lasso regression for feature selection, as it shrinks some variable coefficients to 0 by adding a penalty term to the loss function. A 5-fold cross-validation was performed on the training data to select the optimal alpha from a range of values. We then obtained the coefficients from the optimal model. The results below show the selected features in color and the unselected features with coefficients of 0
   ![](images/lasso_feature_selection.png)
 * *OlS Regression:*
-  Last but not least, we used ols regression to get estimated coefficients. OLS Regression in the Statsmodels package allowed for statistical inference such as p values of coefficients, which were also useful in determine influential features. Below showed the summary of fitting a OLS Regression.
+  Lastly, we employed OLS regression to obtain the estimated coefficients. Using the OLS regression function from the Statsmodels package allowed us to perform statistical inference, such as calculating p-values for the coefficients, which helped identify influential features. The summary of the OLS regression fitting is shown below.
   ![](images/ols_regression_summary.png)
 
 ## E.Case Study(czz)
