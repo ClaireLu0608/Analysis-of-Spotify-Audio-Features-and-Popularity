@@ -111,7 +111,6 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 ## D.Models(xlb)
 ***Variables:*** 
   From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as are features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
-  
 
 ***Data Cleaning:*** 
   For model interpretation and to avoid overfitting, we excluded data points with a popularity score below 5. We applied three different data transformation methods: Log Transformation for skewed features, Standard Scaling for features that followed a normal distribution, and Min-Max Scaling for features without an obvious distribution pattern.
@@ -127,6 +126,18 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 * *OlS Regression:*
   Lastly, we employed OLS regression to obtain the estimated coefficients. Using the OLS regression function from the Statsmodels package allowed us to perform statistical inference, such as calculating p-values for the coefficients, which helped identify influential features. The summary of the OLS regression fitting is shown below.
   ![](images/ols_regression_summary.png)
+
+***Results:*** 
+  We concluded that Mode, Tempo, instrumentalness, and acoutisticness are the less influential features to popularity score, since at least two of the three models excluded them from the subset of important features. 
+
+***Execution method:*** 
+```bash
+python code/models/random_forest_feature_importance.py
+```
+* After running the above command in the terminal, you will get the above image results in the images folder. Randform Forest and Lasso will also return resulting Mean Square Error on testing data.
+* Remember to change the name of the Python file to the method you want to use.
+
+
 
 ## E.Case Study(czz)
 
