@@ -2,6 +2,52 @@
 
 
 ## A.Data Collection(ly)
+***Source:*** 
+  We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api.
+
+
+***Process:***
+* *Search for Playlists:*  
+  We utilized Spotify's Search API (https://developer.spotify.com/documentation/web-api/reference/search)
+  to search for playlists containing English songs. By setting the query to "English songs,"  
+  we ensured that the data would be diverse and representative of different music genres.  
+  We retrieved 50 playlists in total.
+  This step is handled in `code/data/get_playlists.py`.
+  
+* *Retrieve Playlist Items:*  
+  Using the Get Playlist Items API (https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks),  
+  we extracted all the songs from these 50 playlists. This allowed us to gather basic information for each song,  
+  such as ID, name, release date, artists, popularity, and more. This process resulted in an initial dataset containing 5,668 tracks.
+  This step is handled in `code/data/get_tracks.py`.
+
+* *Extract Audio Features:*  
+  With the track IDs obtained from the previous step, we then used the Get Track's Audio Features API (https://developer.spotify.com/documentation/web-api/reference/get-audio-features)  
+  to retrieve detailed audio features for each track. These features included attributes such as loudness, energy, danceability, and more,  
+  providing a deeper understanding of the songs' characteristics. After dropping the duplicated data,  
+  the dataset contains data on 4,929 tracks. We saved the data into a CSV file named `spotify_data.csv`.
+  This step is handled in `code/data/get_spotify_data.py`.
+
+
+***Execution method:*** 
+  To execute the code and get the tracks' information and audio featires (the data that you can use for further analysis), you should first get a Spotify API Client ID and Client Secret. Please follow the steps below to obtain them. Then set them as environment variables, and our code in get_spotify_data.py can help you get your access token. The steps are as follows: 
+
+* Go to the Spotify for Developers Dashboard (https://developer.spotify.com/dashboard/) and log in or create a Spotify developer account.
+* Create a new application, and you will receive a Client ID and Client Secret.
+* Execute the following commands in the terminal:
+```bash
+git clone git@github.com:ClaireLu0608/eco395m_midterm_project.git
+cd eco395m_midterm_project
+pip install -r requirements.txt
+cd code
+cd data
+```
+* Set your Client ID and Client Secret in the `.env` file. Then you can run codes in `get_spotify_data.py` and produce your own data.
+```bash
+python3 get_spotify_data.py
+```
+
+***Results you will get:*** 
+  A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
 ## B.Data Overview(zty)
 ### documentation
@@ -63,6 +109,7 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 Determine the correlation coefficients between each music feature.
   Since some of the features don't follow normal distribution,so Spearman correlation is more suitable for correlation analysis.
 
+<<<<<<< HEAD
 ![correlation](https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/images/spearman_correlation.png)
 
 loudness and energy:correlation coefficient is positive high(0.7)
@@ -92,11 +139,47 @@ duration, danceability, energy, loudness, tempo and valence have VIF>5, which me
 
 
 ## D.Model(xlb) and result
+=======
+## D.Models(xlb)
+***Variables:*** 
+  From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
+
+***Data Cleaning:*** 
+  For model interpretation and to avoid overfitting, we excluded data points with a popularity score below 5. We applied three different data transformation methods: Log Transformation for skewed features, Standard Scaling for features that followed a normal distribution, and Min-Max Scaling for features without an obvious distribution pattern. The cleaned version is in a csv file [here](artifacts/cleaned_data.csv) in the artifacts folder by running the following command:
+```bash
+python code/cleaning/data_cleaning.py
+```
+
+***Models:*** 
+  To explore which features are more relevant and influential to the popularity score, we used three models for feature selection.
+* *Random Forest:*
+  We used impurity-based feature importance from the Random Forest model to identify which features contributed the most to reducing impurity when splitting the data at various nodes. A 5-fold cross-validation was conducted on the training data to select the best parameters, which were then used to fit the model and obtain the feature importance scores. The results below are displayed in descending order of importance.
+  ![](images/random_forest_feature_importance.png)
+* *Lasso Regression:*
+  We also utilized Lasso regression for feature selection, as it shrinks some variable coefficients to 0 by adding a penalty term to the loss function. A 5-fold cross-validation was performed on the training data to select the optimal alpha from a range of values. We then obtained the coefficients from the optimal model. The results below show the selected features in color and the unselected features with coefficients of 0
+  ![](images/lasso_feature_selection.png)
+* *OLS Regression:*
+  Lastly, we employed OLS regression to obtain the estimated coefficients. Using the OLS regression function from the Statsmodels package allowed us to perform statistical inference, such as calculating p-values for the coefficients, which helped identify influential features. The summary of the OLS regression fitting is shown below.
+  ![](images/ols_regression_summary.png)
+
+***Results:*** 
+  We concluded that Mode, Tempo, instrumentalness, and acoutisticness are the less influential features to popularity score, since at least two of the three models excluded them from the subset of important features. 
+
+***Execution method:*** 
+```bash
+python code/models/random_forest_feature_importance.py
+```
+* After running the above command in the terminal, you will get the above image results in the images folder. Random Forest and Lasso will also return resulting Mean Square Error on testing data.
+* Remember to change the name of the Python file to the method you want to use.
+
+
+>>>>>>> 13cf26a515fe716a336ec920d85123f5f917c378
 
 ## E.Case Study(czz)
 
 ## F.Reproducibility(ly)
-
+* ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
+* 
 ## G.Limitations (all)
 
 ## H.Further Improvements(all)
