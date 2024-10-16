@@ -108,7 +108,7 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 
 ### Correlation
 
-D.Model(xlb) and result
+## D,Models(xlb)
 
 ## E.Case Study(czz)
 
