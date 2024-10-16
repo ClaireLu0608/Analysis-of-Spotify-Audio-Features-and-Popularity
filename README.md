@@ -110,7 +110,7 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 
 ## D.Models(xlb)
 ***Variables:*** 
-  From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as are features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
+  From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
 
 ***Data Cleaning:*** 
   For model interpretation and to avoid overfitting, we excluded data points with a popularity score below 5. We applied three different data transformation methods: Log Transformation for skewed features, Standard Scaling for features that followed a normal distribution, and Min-Max Scaling for features without an obvious distribution pattern. The cleaned version is in a csv file [here](artifacts/cleaned_data.csv) in the artifacts folder by running the following command:
