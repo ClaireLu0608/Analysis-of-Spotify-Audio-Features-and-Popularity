@@ -31,7 +31,7 @@ feature_importance = pd.DataFrame(
 
 # Plot feature coefficients
 plt.figure(figsize=(10, 5))
-plt.barh(feature_importance["Feature"], feature_importance["Coefficient"], color="blue")
+plt.barh(feature_importance["Feature"], feature_importance["Coefficient"])
 plt.xlabel("Coefficient")
 plt.title("Lasso Feature Selection")
 plt.savefig("images/lasso_feature_selection.png", bbox_inches="tight")
