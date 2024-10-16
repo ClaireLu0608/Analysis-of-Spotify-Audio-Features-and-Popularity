@@ -5,3 +5,5 @@ numpy==1.26.4
 matplotlib==3.8.4
 statsmodels==0.14.2
 scikit-learn==1.4.2
+seaborn== 0.12.2
+statsmodels.stats.outliers_influence==0.13.5
