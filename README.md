@@ -126,7 +126,7 @@ python code/cleaning/data_cleaning.py
 * *Lasso Regression:*
   We also utilized Lasso regression for feature selection, as it shrinks some variable coefficients to 0 by adding a penalty term to the loss function. A 5-fold cross-validation was performed on the training data to select the optimal alpha from a range of values. We then obtained the coefficients from the optimal model. The results below show the selected features in color and the unselected features with coefficients of 0
   ![](images/lasso_feature_selection.png)
-* *OlS Regression:*
+* *OLS Regression:*
   Lastly, we employed OLS regression to obtain the estimated coefficients. Using the OLS regression function from the Statsmodels package allowed us to perform statistical inference, such as calculating p-values for the coefficients, which helped identify influential features. The summary of the OLS regression fitting is shown below.
   ![](images/ols_regression_summary.png)
 
