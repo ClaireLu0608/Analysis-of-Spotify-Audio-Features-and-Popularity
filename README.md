@@ -178,11 +178,48 @@ python code/models/random_forest_feature_importance.py
 
 
 ## E.Case Study(czz)
+***Top Songs vs. Regular Songs feature analysis***
 
+Objective:
+To examine how the audio features of the top 10% of most popular songs (by some ranking metric) differ from other tracks.
+
+Key Insights:
+
+* The comparison is based on several audio features such as danceability, tempo, liveness, instrumentalness, loudness, speechiness, key, mode, and acousticness.
+* Notable differences can be observed in loudness, key, and mode, where the top 10% songs show distinct characteristics compared to regular songs.
+* Features like instrumentalness and liveness seem to have a negative correlation for top songs, while others like loudness are positively skewed.
+* The key and mode features are also more prevalent in the top tracks, indicating potential influence on popularity.
+
+The visualized result is shown below:
+  ![](images/avg_audio_features_comparison_top_10per.png)
+  
+***Trends in Audio Features Over Time (1980-2024)***
+
+Objective: To identify patterns and trends in the evolution of audio features in songs over time, starting from 1980.
+
+Key Insights:
+
+* Features such as danceability, tempo, liveness, instrumentalness, loudness, and speechiness are analyzed across different decades.
+Some features, like loudness and speechiness, show consistent trends over time, potentially reflecting the changing production styles in the music industry.
+* There’s a lot of variance in tempo and liveness over the years, suggesting shifts in genre popularity or production techniques during different periods.
+* Danceability has remained fairly consistent, though slight variations suggest it may not be as critical a factor for songs’ success over time as other features.
+
+The visualized result is shown below:
+ ![](images/time_based_analysis.png)
+
+ 
 ## F.Reproducibility(ly)
 * ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
 * ***Models:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models. You are able to adjust your desired models as needed. 
 ## G.Limitations (all)
+
+<b>Feature Selection Bias:</b>
+
+The analysis focuses on a predefined set of audio features (e.g., danceability, tempo, loudness), which are curated by Spotify's algorithms. The accuracy and interpretation of these features might not be consistent across all music genres or eras. Some nuances, such as musical innovations or genre crossovers, might not be captured by these specific audio features.
+
+<b>Noise and Variability Over Time:</b>
+
+The temporal analysis shows a lot of variance in certain features like tempo and liveness. This noise could be due to random fluctuations in the dataset or genre shifts that were not fully addressed in the analysis. A more refined analysis could control for genre or other contextual factors to reduce noise and improve the reliability of the findings.
 
 ## H.Further Improvements(all)
 
