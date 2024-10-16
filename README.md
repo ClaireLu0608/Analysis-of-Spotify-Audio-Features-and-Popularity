@@ -50,7 +50,7 @@ python3 get_spotify_data.py
   A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
 ## B.Data Overview(zty)
-### documentation
+***documentation:*** 
 1. id: The Spotify ID for the album
 2. name:The name of the album
 3. release date:The date the album was first released
@@ -70,7 +70,10 @@ python3 get_spotify_data.py
 18. tempo:The overall estimated tempo of a track in beats per minute (BPM). 
 
 
-### distribution
+***distribution:***
+```bash
+python3 distribution.py
+```
 
 ![distribution](https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/images/variable_distributions.png)
 1. The distribution of duration(ms), danceability, energy, loudness, liveness,valence and tempo are more closely follows a normal distribution
@@ -105,20 +108,22 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 ## C.Data Cleaning(xlb) and Correlation(zty)
 
 
-### Correlation
-Determine the correlation coefficients between each music feature.
-  Since some of the features don't follow normal distribution,so Spearman correlation is more suitable for correlation analysis.
+***Correlation:***
+- **Determine the correlation coefficients between each music feature.**
 
-<<<<<<< HEAD
+  Since some of the features don't follow normal distribution,so Spearman correlation is more suitable for correlation analysis.
+```bash
+python3 spearman_correlation.py
+```
 ![correlation](https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/images/spearman_correlation.png)
 
-loudness and energy:correlation coefficient is positive high(0.7)
-acousticness and energy:correlation coefficient is negative high(-0.56)
-valence and danceability:correlation coefficient is relatively high(0.43)
+**loudness and energy:** correlation coefficient is positive high(0.7)
+**acousticness and energy:** correlation coefficient is negative high(-0.56)
+**valence and danceability:** correlation coefficient is relatively high(0.43)
 
-Check for Multicollinearity
+- **Check for Multicollinearity**
 
-Variance Inflation Factor (VIF): A common measure used to quantify how much the variance of the estimated regression coefficients is increased due to multicollinearity.
+  Variance Inflation Factor (VIF): A common measure used to quantify how much the variance of the estimated regression coefficients is increased due to multicollinearity.
 
 | Feature         | VIF                         |
 |-----------------|-----------------------------|
@@ -135,7 +140,8 @@ Variance Inflation Factor (VIF): A common measure used to quantify how much the 
 |**valence**          | 7.627239
 |**tempo**            | 17.631970
 
-duration, danceability, energy, loudness, tempo and valence have VIF>5, which means these feature may effect the durability of regression model. According to the correlation result, duration, danceability, loudness have higher correlation with popularity, so we can delete energy and valence.
+- **Conclusion:**
+  duration, danceability, energy, loudness, tempo and valence have VIF>5, which means these feature may effect the durability of regression model. According to the correlation result, duration, danceability, loudness have higher correlation with popularity, so we can delete energy and valence.
 
 
 ## D.Models(xlb) and Result
