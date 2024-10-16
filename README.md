@@ -32,17 +32,17 @@
 * Go to the Spotify for Developers Dashboard (https://developer.spotify.com/dashboard/) and log in or create a Spotify developer account.
 * Create a new application, and you will receive a Client ID and Client Secret.
 * Execute the following commands in the terminal:
-  ```bash
+```bash
 git clone git@github.com:ClaireLu0608/eco395m_midterm_project.git
 cd eco395m_midterm_project
 pip install -r requirements.txt
 cd code
 cd data
-  ```
+```
 * Set your Client ID and Client Secret in the `.env` file. Then you can run codes in `get_spotify_data.py` and produce your own data.
-  ```bash
-  python3 get_spotify_data.py
-  ```
+```bash
+python3 get_spotify_data.py
+```
 
 ***Results you will get:*** A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
