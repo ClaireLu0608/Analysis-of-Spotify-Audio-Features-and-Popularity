@@ -110,11 +110,17 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
 
 ## D.Models(xlb)
 ***Variables:*** 
-  From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as are features and popularity as our y label. 
+  From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as are features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
   
 
 ***Data Cleaning:*** 
-  For model interpretation purporse, we do not look at data points with popularity score under 5. We utilized 3 methods of data transformation: Log Transform for skewed features, Standard Scaling for normally distributed features, and Min-Max Scaling for features without distributuons. "Mode" is the only binary feature and all other features are continous.
+  For model interpretation and overfitting reasons, we did not look at data points with popularity score under 5. We utilized 3 methods of data transformation: Log Transform for skewed features, Standard Scaling for normally distributed features, and Min-Max Scaling for features without obvious distributuons. 
+
+***Models:*** 
+  To explore which features are more relevant and influential to the popularity score, we used three models for feature selection.
+* *Random Forest:*
+  We used impurity-based feature importance of Random Forest to determine which feature is more useful for reduction in impurity when splitting data at verious nodes. A 5 fold cross validation was performed on trainning data with the best parameters selected, and we used them to obtain feature importance when fitting.
+  
 
 ## E.Case Study(czz)
 
