@@ -11,20 +11,20 @@
   to search for playlists containing English songs. By setting the query to "English songs,"  
   we ensured that the data would be diverse and representative of different music genres.  
   We retrieved 50 playlists in total.
-  This step is handled in `get_playlists.py file`.
+  This step is handled in `code/data/get_playlists.py file`.
   
 * *Retrieve Playlist Items:*  
   Using the Get Playlist Items API (https://developer.spotify.com/documentation/web-api/reference/get-playlists-tracks),  
   we extracted all the songs from these 50 playlists. This allowed us to gather basic information for each song,  
   such as ID, name, release date, artists, popularity, and more. This process resulted in an initial dataset containing 5,668 tracks.
-  This step is handled in `get_tracks.py file`.
+  This step is handled in `code/data/get_tracks.py file`.
 
 * *Extract Audio Features:*  
   With the track IDs obtained from the previous step, we then used the Get Track's Audio Features API (https://developer.spotify.com/documentation/web-api/reference/get-audio-features)  
   to retrieve detailed audio features for each track. These features included attributes such as loudness, energy, danceability, and more,  
   providing a deeper understanding of the songs' characteristics. After dropping the duplicated data,  
   the dataset contains data on 4,929 tracks. We saved the data into a CSV file named `spotify_data.csv`.
-  This step is handled in `get_spotify_data.py file`.
+  This step is handled in `code/data/get_spotify_data.py file`.
 
 
 ***Execution method:*** To execute the code and get the tracks' information and audio featires (the data that you can use for further analysis), you should first get a Spotify API Client ID and Client Secret. Please follow the steps below to obtain them. Then set them as environment variables, and our code in get_spotify_data.py can help you get your access token. The steps are as follows: 
@@ -32,14 +32,17 @@
 * Go to the Spotify for Developers Dashboard (https://developer.spotify.com/dashboard/) and log in or create a Spotify developer account.
 * Create a new application, and you will receive a Client ID and Client Secret.
 * Execute the following commands in the terminal:
-```bash
+  ```bash
 git clone git@github.com:ClaireLu0608/eco395m_midterm_project.git
 cd eco395m_midterm_project
 pip install -r requirements.txt
 cd code
 cd data
-```
+  ```
 * Set your Client ID and Client Secret in the `.env` file. Then you can run codes in `get_spotify_data.py` and produce your own data.
+  ```bash
+  python3 get_spotify_data.py
+  ```
 
 ***Results you will get:*** A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
