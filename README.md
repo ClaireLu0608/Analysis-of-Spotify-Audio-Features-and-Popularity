@@ -120,7 +120,7 @@ The distribution of the release year shows a steep rise from the 1960s onwards, 
   To explore which features are more relevant and influential to the popularity score, we used three models for feature selection.
 * *Random Forest:*
   We used impurity-based feature importance of Random Forest to determine which feature is more useful for reduction in impurity when splitting data at verious nodes. A 5 fold cross validation was performed on trainning data with the best parameters selected, and we used them to obtain feature importance when fitting.
-  (https://github.com/ClaireLu0608/eco395m_midterm_project/blob/main/images/random_forest_feature_importance.png)
+  ![](images/random_forest_feature_importance.png)
   
 
 ## E.Case Study(czz)
