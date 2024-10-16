@@ -215,6 +215,9 @@ Some features, like loudness and speechiness, show consistent trends over time, 
 * ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
 * ***Models:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models. You are able to adjust your desired models as needed. 
 ## G.Limitations (all)
+<b>Data Limitations:</b>
+
+The "popularity" data in our dataset is calculated by Spotify using their own algorithm. This algorithm factors in the total number of plays a track has received and how recent those plays are. However, we don't know the exact details of the algorithm, and we cannot access the actual play count or the number of people who have saved a track through the API. Additionally, some Audio Features, like Danceability and Energy, are actually scores that Spotify assigns to each track. We cannot determine the exact criteria for these scores or the detailed steps used to calculate them. 
 
 <b>Feature Selection Bias:</b>
 
