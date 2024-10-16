@@ -138,9 +138,7 @@ Variance Inflation Factor (VIF): A common measure used to quantify how much the 
 duration, danceability, energy, loudness, tempo and valence have VIF>5, which means these feature may effect the durability of regression model. According to the correlation result, duration, danceability, loudness have higher correlation with popularity, so we can delete energy and valence.
 
 
-## D.Model(xlb) and result
-=======
-## D.Models(xlb)
+## D.Models(xlb) and Result
 ***Variables:*** 
   From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
 
