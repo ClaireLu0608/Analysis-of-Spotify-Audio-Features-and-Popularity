@@ -221,7 +221,7 @@ The "popularity" feature in our dataset is calculated by Spotify using their own
 
 <b>Model Limitations:</b>
 
-Models are unable to perfectly predict popularity scores based solely on audio features. One of the main reasons is that Spotify calculates these scores using some features that are not publicly available, making it challenging to build accurate machine learning models. This limitation also introduces bias in feature selection and leads to some variability in the results, as the models may not be able to capture enough patterns using audio features only.
+Besides doing feature selection, models are unable to perfectly predict popularity scores based solely on audio features. One of the main reasons is that Spotify calculates these scores using some features that are not publicly available, making it challenging to build accurate machine learning models. This limitation also introduces bias in feature selection and leads to some variability in the results, as the models may not be able to capture enough patterns using audio features only.
 
 <b>Feature Selection Bias:</b>
 
