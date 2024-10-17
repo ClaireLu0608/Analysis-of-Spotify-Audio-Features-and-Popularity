@@ -213,7 +213,7 @@ Some features, like loudness and speechiness, show consistent trends over time, 
  
 ## F.Reproducibility
 * ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
-* ***Models:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models. You are able to adjust your desired models as needed. 
+* ***Models & Case Study:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models and case study. You are able to adjust your desired methods as needed. 
 ## G.Limitations
 <b>Data Limitations:</b>
 
