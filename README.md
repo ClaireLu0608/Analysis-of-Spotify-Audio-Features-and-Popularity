@@ -236,4 +236,8 @@ Some methods can be developed to obtain the actual play counts for each track an
 
 A genre-based comparison could shed light on whether the trends observed in the top 10% songs are genre-specific or universal. Some audio features, like instrumentalness or tempo, may have different influences depending on whether the song is pop, rock, hip-hop, electronic, etc. Splitting the data by genre and conducting genre-specific case studies could lead to more accurate insights.
 
+***Prediction and Coefficient Estimation:***
+
+If additional features, such as the total number of plays per track and recent plays, can be obtained through the Developer API or web scraping, a prediction task can be performed to develop machine learning models for predicting popularity scores. Alternatively, if all confounding variables (i.e., all covariates that influence the popularity score) are presented, unbiased estimation of the coefficients using causal inference methods can be applied to assess the actual impact of each feature on the popularity score.
+
 
