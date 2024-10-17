@@ -1,4 +1,4 @@
-# eco395m_midterm_project
+# Unraveling the impact of Audio Features on Spotify Popularity Score
 
 
 ## A.Data Collection
