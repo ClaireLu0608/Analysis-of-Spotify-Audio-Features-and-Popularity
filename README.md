@@ -1,7 +1,7 @@
 # eco395m_midterm_project
 
 
-## A.Data Collection(ly)
+## A.Data Collection
 ***Source:*** 
   We used the Spotify for Developers API to gather information on Spotify music. Here are the links to the docomentation of Spotify for Developers: https://developer.spotify.com/documentation/web-api.
 
@@ -49,7 +49,7 @@ python3 get_spotify_data.py
 ***Results you will get:*** 
   A CSV file named `spotify_data.csv`, [here](artifacts/spotify_data.csv).
 
-## B.Data Overview(zty)
+## B.Data Overview
 ***documentation:*** 
 1. id: The Spotify ID for the album
 2. name:The name of the album
@@ -105,7 +105,7 @@ The tempo distribution is multimodal, with several peaks indicating that songs t
 The distribution of the release year shows a steep rise from the 1960s onwards, with a noticeable peak around 2020. This suggests that the dataset contains a larger number of recent tracks.
 
  
-## C.Data Cleaning(xlb) and Correlation(zty)
+## C.Correlation Analysis
 
 
 ***Correlation:***
@@ -144,7 +144,7 @@ python3 spearman_correlation.py
   duration, danceability, energy, loudness, tempo and valence have VIF>5, which means these feature may effect the durability of regression model. According to the correlation result, duration, danceability, loudness have higher correlation with popularity, so we can delete energy and valence.
 
 
-## D.Models(xlb) and Result
+## D.Models and Result
 ***Variables:*** 
   From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
 
@@ -177,7 +177,7 @@ python code/models/random_forest_feature_importance.py
 * Remember to change the name of the Python file to the method you want to use.
 
 
-## E.Case Study(czz)
+## E.Case Study
 ***Top Songs vs. Regular Songs feature analysis***
 
 ***Objective:***
@@ -211,10 +211,10 @@ Some features, like loudness and speechiness, show consistent trends over time, 
  ![](images/time_based_analysis.png)
 
  
-## F.Reproducibility(ly)
+## F.Reproducibility
 * ***Data:*** You can follow the guidance in **Part A**. Please note that you need to have the Client ID and Client Secret first. 
 * ***Models:*** From **Part D** instructions, you will see two command lines. One is used to get a cleaned data csv from data_cleaning.py and the other is used to run different models. You are able to adjust your desired models as needed. 
-## G.Limitations (all)
+## G.Limitations
 <b>Data Limitations:</b>
 
 The "popularity" data in our dataset is calculated by Spotify using their own algorithm. This algorithm factors in the total number of plays a track has received and how recent those plays are. However, we don't know the exact details of the algorithm, and we cannot access the actual play count or the number of people who have saved a track through the API. Additionally, some Audio Features, like Danceability and Energy, are actually scores that Spotify assigns to each track. We cannot determine the exact criteria for these scores or the detailed steps used to calculate them. 
@@ -227,7 +227,7 @@ The analysis focuses on a predefined set of audio features (e.g., danceability, 
 
 The temporal analysis shows a lot of variance in certain features like tempo and liveness. This noise could be due to random fluctuations in the dataset or genre shifts that were not fully addressed in the analysis. A more refined analysis could control for genre or other contextual factors to reduce noise and improve the reliability of the findings.
 
-## H.Further Improvements(all)
+## H.Further Improvements
 ***Data Collection:***
 
 Some methods can be developed to obtain the actual play counts for each track and how many people have saved them. Additionally, we can retrieve the genre tags for each track and analyze which features influence the popularity of tracks within specific genres, making the analysis more targeted.
