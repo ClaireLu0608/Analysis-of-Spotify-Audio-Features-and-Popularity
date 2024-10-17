@@ -47,6 +47,9 @@ audio_features = [
     "instrumentalness",
     "loudness",
     "speechiness",
+    "key",
+    "mode",
+    "acousticness",
 ]
 df_selected = df_cleaned[["release_year"] + audio_features]
 df_selected = df_selected[df_selected["release_year"] > 1980]

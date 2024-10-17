@@ -17,9 +17,6 @@ audio_features = [
     "instrumentalness",
     "loudness",
     "speechiness",
-    "key",
-    "mode",
-    "acousticness",
 ]
 
 # Step 4: Group the data by 'top_10_percent' and calculate the mean of the audio features for each group
