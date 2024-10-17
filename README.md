@@ -217,7 +217,11 @@ Some features, like loudness and speechiness, show consistent trends over time, 
 ## G.Limitations
 <b>Data Limitations:</b>
 
-The "popularity" data in our dataset is calculated by Spotify using their own algorithm. This algorithm factors in the total number of plays a track has received and how recent those plays are. However, we don't know the exact details of the algorithm, and we cannot access the actual play count or the number of people who have saved a track through the API. Additionally, some Audio Features, like Danceability and Energy, are actually scores that Spotify assigns to each track. We cannot determine the exact criteria for these scores or the detailed steps used to calculate them. 
+The "popularity" feature in our dataset is calculated by Spotify using their own algorithm. This algorithm have factors in the total number of plays a track has received and how recent those plays are. However, we don't know the exact details of the algorithm, and we cannot access the actual play count or the number of people who have saved a track through the API. Additionally, some Audio Features, like Danceability and Energy, are actually scores that Spotify assigns to each track. We cannot determine the exact criteria for these scores or the detailed steps used to calculate them. 
+
+<b>Model Limitations:</b>
+
+Models are unable to perfectly predict popularity scores based solely on audio features. One of the main reasons is that Spotify calculates these scores using some features that are not publicly available, making it challenging to build accurate machine learning models. This limitation also introduces bias in feature selection and leads to some variability in the results, as the models may not be able to capture enough patterns using audio features only.
 
 <b>Feature Selection Bias:</b>
 
