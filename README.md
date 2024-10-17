@@ -193,6 +193,8 @@ To examine how the audio features of the top 10% of most popular songs (by some 
 * Notable differences can be observed in loudness, key, and mode, where the top 10% songs show distinct characteristics compared to regular songs.
 * Features like instrumentalness and liveness seem to have a negative correlation for top songs, while others like loudness are positively skewed.
 * The key and mode features are also more prevalent in the top tracks, indicating potential influence on popularity.
+* This result aligns with the feature importance findings, indicating that the differences among less important features are small.
+
 
 ***Result:***
 
