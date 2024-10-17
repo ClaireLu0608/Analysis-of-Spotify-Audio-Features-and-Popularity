@@ -146,8 +146,8 @@ python3 spearman_correlation.py
 
 ## D.Models and Result
 ***Goals:*** 
-* *1.* Explore relationship between audio features and Spotify popularity score for tracks.
-* *2.* Identify audio features that are more influential to Spotify popularity score.
+* ** Explore relationship between audio features and Spotify popularity score for tracks.
+* ** Identify audio features that are more influential to Spotify popularity score.
   
 ***Variables:*** 
   From previous correlation results, we have left with duration_ms, speechiness, acousticness, instrumentalness, danceability, liveness, loudness, tempo, key, and mode as features and popularity as our y label. "Mode" is the only binary variable and all other variables are continous.
