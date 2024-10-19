@@ -154,7 +154,7 @@ python3 spearman_correlation.py
 ***Data Cleaning:*** 
   For model interpretation and to avoid overfitting, we excluded data points with a popularity score below 5. We applied three different data transformation methods: Log Transformation for skewed features, Standard Scaling for features that followed a normal distribution, and Min-Max Scaling for features without an obvious distribution pattern. The cleaned version is in a csv file [here](artifacts/cleaned_data.csv) in the artifacts folder by running the following command:
 ```bash
-python code/cleaning/data_cleaning.py
+python3 code/cleaning/data_cleaning.py
 ```
 
 ***Models:*** 
@@ -174,7 +174,7 @@ python code/cleaning/data_cleaning.py
 
 ***Execution method:*** 
 ```bash
-python code/models/random_forest_feature_importance.py
+python3 code/models/random_forest_feature_importance.py
 ```
 * After running the above command in the terminal, you will get the above image results in the images folder. Random Forest and Lasso will also return resulting Mean Square Error on testing data.
 * Remember to change the name of the Python file to the method you want to use.
